@@ -1,0 +1,1 @@
+Ingat ketika kita gunakan Embed, saat go kita compile, maka file yang kita gunakan (di embed) akan di include ke dalam binary file nya atau di copy kedalam binary file nya
