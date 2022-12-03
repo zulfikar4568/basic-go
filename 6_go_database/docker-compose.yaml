@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  database:
+    container_name: go-mysql
+    image: "mariadb:10.2.40"
+    ports:
+      - 3306:3306
+    environment:
+        MYSQL_ROOT_PASSWORD: '123'
+        MYSQL_DATABASE: 'db_test'
+        MYSQL_USER: 'root'
+        MYSQL_PASSWORD: '123'
+        MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        MYSQL_ROOT_HOST: '%'
+    volumes:
+        - .data/db-web:/var/lib/mysql:rw,delegated
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - go-mysql
+
+networks:
+  go-mysql:
+    driver: bridge
